@@ -8,6 +8,10 @@ import Search from './Components/Header/Search/Search';
 import Header from './Components/Header/Header';
 import Footer from './Components/Footer/Footer';
 
+import ShoppingCart from './pages/ShoppingCart/ShoppingCart.js';
+import Dashboard from './pages/Dashboard/Dashboard.js';
+
+
 function App() {
   return (
     <Router>
@@ -21,6 +25,10 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/search" element={<Search />} />
             <Route path="/list" element={<List />} />
+
+            <Route path="/ShoppingCart" element={<ShoppingCart />} />
+            <Route path="/Dashboard" element={<Dashboard />} />
+
           </Routes>
         </div>
 
