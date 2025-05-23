@@ -28,7 +28,7 @@ const Header = () => {
   };
 
   const handleCartClick = () => {
-    navigate('/cart');
+    navigate('/ShoppingCart');
   };
 
   const handleLogout = () => {
@@ -36,6 +36,10 @@ const Header = () => {
     setShowProfile(false);
     navigate('/login');
   };
+
+  const profile = () => {
+    navigate('/Dashboard');
+  }
 
   const isHome = location.pathname === '/';
 
@@ -71,6 +75,7 @@ const Header = () => {
             <div className="profile-dropdown">
               <p className="profile-name">{user?.firstName} {user?.lastName}</p>
               <p className="profile-email">{user?.email}</p>
+              <button className="logout-btn" onClick={profile}>Profile</button>
               <button className="logout-btn" onClick={handleLogout}>Log out</button>
             </div>
           )}

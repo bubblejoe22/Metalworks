@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Home.css';
 import { useAppStore } from '../../stores/useStore';
-import Overlay from '../../components/Overlay/Overlay.js';
+import Overlay from '../../Components/Overlay/Overlay.js';
 import ironShieldImage from '../../assets/iron_shield.png';
 import steelArmorImage from '../../assets/steel_armor.png';
 import steelSwordImage from '../../assets/steel_sword.png';
@@ -12,12 +12,12 @@ import jereveImage from '../../assets/jereve.png';
 import icon from '../../assets/icon.jpg';
 import banner from '../../assets/bannerr.png';
 import character from '../../assets/guide.png';
+import { productsData } from '../../data/productsData';
 
 export default function Home() {
   const { openOverlay } = useAppStore();
   const navigate = useNavigate();
 
-  // Centralized image assets
   const images = {
     icons: {
       services: icon,
@@ -38,28 +38,27 @@ export default function Home() {
     charac: character
   };
 
-  // Mock data with image references
   const dealItems = [
     { 
-      id: 1, 
+      id: 2, 
       title: 'IRON SHIELD', 
-      price: '$45.99', 
+      price: '900', 
       description: 'Forged with precision for warriors', 
       onSale: true,
       image: images.deals.ironShield
     },
     { 
-      id: 2, 
-      title: 'STEEL ARMOR',  // Fixed typo (ARMOR instead of ARMOR)
-      price: '$62.50', 
+      id: 3, 
+      title: 'STEEL ARMOR',  
+      price: '900', 
       description: 'Protective gear for brave fighters', 
       onSale: true,
       image: images.deals.steelArmor
     },
     { 
-      id: 3, 
+      id: 1, 
       title: 'STEEL SWORD', 
-      price: '$89.99', 
+      price: '800', 
       description: 'Legendary weapon for champions', 
       onSale: true,
       image: images.deals.steelSword
@@ -67,17 +66,16 @@ export default function Home() {
   ];
 
   const blacksmiths = [
-    { id: 1, name: 'Kristine', image: images.blacksmiths.kristine },
-    { id: 2, name: 'Elven Forger', image: images.blacksmiths.deborah },
-    { id: 3, name: 'Dwarven Artisan', image: images.blacksmiths.jereve },
+    { id: 1, name: 'Blacksmith Kristine', image: images.blacksmiths.kristine },
+    { id: 2, name: 'Elven Deborah', image: images.blacksmiths.deborah },
+    { id: 3, name: 'Dwarven Jereve', image: images.blacksmiths.jereve },
   ];
 
   return (
      <div className="dashboard">
-      {/* Main Overlay Component */}
+
       <Overlay />
 
-      {/* Hero Section */}
       <div 
   className="hero-section" 
   style={{ 
@@ -108,7 +106,6 @@ export default function Home() {
   }}
 ></div>
 
-      {/* Quick Access Buttons */}
       <div className="quick-access-buttons">
         <button 
           className="overlay-trigger services-btn"
@@ -130,7 +127,6 @@ export default function Home() {
         </button>
       </div>
 
-      {/* Best Deals Section */}
       <div className="section">
         <h3 className="section-title">Best Deals</h3>
         <div className="deals-grid">
@@ -147,7 +143,7 @@ export default function Home() {
                   <span className="deal-price">{item.price}</span>
                   <button 
                     className="buy-button" 
-                    onClick={() => navigate('/productdetail')}
+                    onClick={() => navigate(`/productdetails/${item.id}`)}
                   >
                     VIEW DEAL
                   </button>
@@ -173,7 +169,7 @@ export default function Home() {
             ))}
           </div>
           <div className="view-all-row">
-            <span className="view-all-text">VIEW INTERACTIVE LIST</span>
+            <span className="view-all-text"><a href='/list'>VIEW BLACKSMITH LIST</a></span>
           </div>
         </div>
       </div>

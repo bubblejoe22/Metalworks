@@ -1,8 +1,8 @@
 import React from "react";
 import "./Footer.css";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
-import bankIcon from "./footerassets/bank.svg";
-import cardIcon from "./footerassets/card.svg";
+import bankIcon from "./Footerassets/bank.svg";
+import cardIcon from "./Footerassets/card.svg";
 import { Link } from "react-router-dom";
 
 const Footer = () => {

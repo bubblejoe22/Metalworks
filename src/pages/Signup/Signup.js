@@ -1,224 +1,178 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import './Signup.css';
-import textboxImage from '../../assets/textbox.PNG';
-
 
 const Signup = () => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-  
-  // Form validation errors
-  const [firstNameError, setFirstNameError] = useState('');
-  const [lastNameError, setLastNameError] = useState('');
-  const [emailError, setEmailError] = useState('');
-  const [passwordError, setPasswordError] = useState('');
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: ''
+  });
 
-     const [isBubbleVisible, setIsBubbleVisible] = useState(true); // 🟢 Bubble state
-    useDismissBubble(setIsBubbleVisible);
+  const [errors, setErrors] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: ''
+  });
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+    
+    // Clear error when typing
+    if (errors[name]) {
+      setErrors(prev => ({
+        ...prev,
+        [name]: ''
+      }));
+    }
+  };
 
   const validateForm = () => {
     let isValid = true;
+    const newErrors = {...errors};
 
-    if (!firstName) {
-      setFirstNameError('First name is required');
+    if (!formData.firstName.trim()) {
+      newErrors.firstName = 'First name is required';
       isValid = false;
-    } else {
-      setFirstNameError('');
     }
 
-    if (!lastName) {
-      setLastNameError('Last name is required');
+    if (!formData.lastName.trim()) {
+      newErrors.lastName = 'Last name is required';
       isValid = false;
-    } else {
-      setLastNameError('');
     }
 
-    if (!email) {
-      setEmailError('Email is required');
+    if (!formData.email) {
+      newErrors.email = 'Email is required';
       isValid = false;
-    } else if (!/\S+@\S+\.\S+/.test(email)) {
-      setEmailError('Invalid email address');
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Invalid email address';
       isValid = false;
-    } else {
-      setEmailError('');
     }
 
-    if (!password) {
-      setPasswordError('Password is required');
+    if (!formData.password) {
+      newErrors.password = 'Password is required';
       isValid = false;
-    } else if (password.length < 8) {
-      setPasswordError('Password must be at least 8 characters');
+    } else if (formData.password.length < 8) {
+      newErrors.password = 'Password must be at least 8 characters';
       isValid = false;
-    } else {
-      setPasswordError('');
     }
 
+    setErrors(newErrors);
     return isValid;
+  };
+
+  const navigate = useNavigate();
+
+  const submit = () => {
+    navigate('/login');
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    if (!validateForm()) {
-      return;
-    }
+    if (!validateForm()) return;
 
     setIsLoading(true);
-    setError(null);
     
     try {
-      // PHP integration - This would be replaced with your actual PHP endpoint
-      const response = await fetch('api/signup.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ firstName, lastName, email, password }),
-      });
-      
-      const data = await response.json();
-      
-      if (!response.ok) {
-        throw new Error(data.message || 'Signup failed');
-      }
-      
+      // Your signup API call would go here
+      // const response = await signupUser(formData);
       // Handle successful signup
-      console.log('Signup successful', data);
       
-      // Redirect to login page
-      window.location.href = '/login';
+      // Temporary timeout for demo
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      console.log('Signup successful', formData);
       
-    } catch (err) {
-      console.error('Signup error:', err);
-      setError(err instanceof Error ? err.message : 'Failed to signup. Please try again.');
+    } catch (error) {
+      console.error('Signup error:', error);
     } finally {
       setIsLoading(false);
     }
   };
 
-  function useDismissBubble(setVisible) {
-    useEffect(() => {
-      const handleClick = () => {
-        setVisible(false);
-      };
-  
-      document.addEventListener('click', handleClick);
-      return () => {
-        document.removeEventListener('click', handleClick);
-      };
-    }, [setVisible]);
-  }
-
   return (
-    <div className="signup-container">
-        <div className="welcome-message">Be a new adventurer!</div>
-      <div className="signup-card" 
-      style={{ 
-        backgroundImage: `url(${textboxImage})`,
-        backgroundSize: 'contain', // or 'cover', or '100% 100%'
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'center',
-        width: '500px',
-        height: '300px',
-        padding: '2rem',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-     }}>
-        <h1 className="signup-title">Sign Up</h1>
-        
-        {error && (
-          <div className="error-alert">
-            {error}
-          </div>
-        )}
-        
-        <form onSubmit={handleSubmit}>
-           <div className="form-rows">
-          <div className="name-row">
+    <div className="signup-page-content">
+      <div className="welcome-message">Be a new adventurer!</div>
+      
+      <div className="signup-wrapper">
+        {/* Form Container */}
+        <div className="signup-form-container">
+          <h2>Sign Up</h2>
+          
+          <form className="signup-form" onSubmit={handleSubmit}>
             <div className="form-group">
-              <input 
+              <input
                 type="text"
-                className="form-input"
-                placeholder='First Name'
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
+                name="firstName"
+                placeholder="First Name"
+                value={formData.firstName}
+                onChange={handleChange}
+                className={errors.firstName ? 'input-error' : ''}
               />
-              {firstNameError && <p className="error-message">{firstNameError}</p>}
+              {errors.firstName && <p className="error-message">{errors.firstName}</p>}
             </div>
             
             <div className="form-group">
-              <input 
+              <input
                 type="text"
-                className="form-input"
-                placeholder='Last Name'
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
+                name="lastName"
+                placeholder="Last Name"
+                value={formData.lastName}
+                onChange={handleChange}
+                className={errors.lastName ? 'input-error' : ''}
               />
-              {lastNameError && <p className="error-message">{lastNameError}</p>}
+              {errors.lastName && <p className="error-message">{errors.lastName}</p>}
             </div>
-          </div>
+            
+            <div className="form-group">
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={handleChange}
+                className={errors.email ? 'input-error' : ''}
+              />
+              {errors.email && <p className="error-message">{errors.email}</p>}
+            </div>
+            
+            <div className="form-group">
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={formData.password}
+                onChange={handleChange}
+                className={errors.password ? 'input-error' : ''}
+              />
+              {errors.password && <p className="error-message">{errors.password}</p>}
+            </div>
+            
+            <button
+              onClick={submit}
+              type="submit"
+              className="submit-button"
+              disabled={isLoading}
+            >
+              {isLoading ? 'Signing up...' : 'Sign Up'}
+            </button>
+          </form>
           
-          <div className='credits-row'>
-          <div className="form-group">
-            <input 
-              type="email"
-              className="form-input"
-              placeholder='Email'
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-            {emailError && <p className="error-message">{emailError}</p>}
+          <div className="login-link">
+            <Link to="/login">Already have an account? Login</Link>
           </div>
-          
-          <div className="form-group">
-            <input 
-              type="password"
-              className="form-input"
-              placeholder='Password'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
-            {passwordError && <p className="error-message">{passwordError}</p>}
-          </div>
-          </div>
-          </div>
-          <button 
-            type="submit" 
-            className="submit-button" 
-            disabled={isLoading}
-          >
-            {isLoading ? 'Creating account...' : 'Sign Up'}
-          </button>
-        </form>
-          
-          <div className="form-footer">
-            <p>
-              Already have an account?{' '}
-              <Link to="/login" className="form-link">
-                Login
-              </Link>
-            </p>
-          </div>
-      </div>
-      <div className="character-container">
-        {isBubbleVisible && (
-          <div className="character-bubble">
-            <p>Sign up with us!</p>
-            <p className="bubble-footnote">Click anywhere to exit.</p>
-          </div>
-        )}
-        <div className="pixel-character"></div>
+        </div>
+        
       </div>
     </div>
-
   );
 };
 

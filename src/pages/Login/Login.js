@@ -3,19 +3,6 @@ import { useNavigate } from 'react-router-dom';
 
 import './Login.css';
 
-function useDismissBubble(setVisible) {
-  useEffect(() => {
-    const handleClick = () => {
-      setVisible(false);
-    };
-
-    document.addEventListener('click', handleClick);
-    return () => {
-      document.removeEventListener('click', handleClick);
-    };
-  }, [setVisible]);
-}
-
 const LoginForm = () => {
   const [formData, setFormData] = useState({
     email: '',
@@ -28,8 +15,7 @@ const LoginForm = () => {
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isBubbleVisible, setIsBubbleVisible] = useState(true);
-  useDismissBubble(setIsBubbleVisible);
+
   
   const validateEmail = (email) => {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -166,15 +152,7 @@ const LoginForm = () => {
           </form>
         </div>
         
-        <div className="character-container">
-          {isBubbleVisible && (
-            <div className="character-bubble">
-              <p>Login to discover great items!</p>
-              <p className="bubble-footnote">Click anywhere to exit.</p>
-            </div>
-          )}
-          <div className="pixel-character"></div>
-        </div>
+       
       </div>
     </div>
   );

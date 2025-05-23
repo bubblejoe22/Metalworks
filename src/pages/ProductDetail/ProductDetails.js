@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import './ProductDetails.css';
 import { productsData } from '../../data/productsData';
 import { useCart } from '../../data/CartProvider';
@@ -53,7 +53,7 @@ const ProductDetail = () => {
       setQuantity(quantity + 1);
     }
   };
-
+const navigate = useNavigate();
   const decrementQuantity = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
@@ -102,6 +102,7 @@ const ProductDetail = () => {
 
   const handleCheckout = () => {
     alert('Proceeding to checkout with this item!');
+    navigate('/checkout');
   };
 
   if (!product) {
