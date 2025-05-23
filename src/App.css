@@ -1,0 +1,74 @@
+/* GlobalStyles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Font Face Definition */
+@font-face {
+  font-family: 'PixelifySans';
+  src: url('./assets/font/static/PixelifySans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* HTML & Body Styles */
+html, body {
+  min-height: 100vh;
+  font-family: 'PixelifySans', 'MyFont';
+  color: white;
+  background-color: #121212; /* Fallback if image doesn't load */
+  background-image: url('./assets/bg2.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+/* Scrollbar Styling (Optional) */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(62, 67, 46, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6d8c45;
+  border-radius: 4px;
+}
+
+/* Selection Styling */
+::selection {
+  background: #ffcf48;
+  color: #3E432E;
+}
+
+/* Link Styles */
+a {
+  color: #ffcf48;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #6d8c45;
+}
+
+/* Utility Classes */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Responsive Base Font Size */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
