@@ -1,23 +1,3 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Checkout from './pages/checkout/co.js'; 
-import OrderConfirm from './pages/orderconfirm/oc.js';
-import OrderTrack from './pages/ordertracking/ot.js';
-
-function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/orderconfirm" element={<OrderConfirm />} />
-        <Route path="/ordertrack" element={<OrderTrack />} />
-      </Routes>
-    </Router>
-  );
-}
-
-export default App;
-
 import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -35,6 +15,9 @@ import FAQ from './pages/FAQ/Faq.js';
 import TermsAndConditions from './pages/TermsAndConditions/TermsAndConditions.js';
 import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy.js';
 
+import Checkout from './pages/checkout/co.js'; 
+import OrderConfirm from './pages/orderconfirm/oc.js';
+import OrderTrack from './pages/ordertracking/ot.js';
 
 function App() {
   return (
@@ -56,6 +39,11 @@ function App() {
             <Route path="/FAQ" element={<FAQ />} />
             <Route path="/TermsAndConditions" element={<TermsAndConditions />} />
             <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
+
+            <Route path="/checkout" element={<Checkout />} />
+        <Route path="/orderconfirm" element={<OrderConfirm />} />
+        <Route path="/ordertrack" element={<OrderTrack />} />
+
 
           </Routes>
         </div>
