@@ -19,6 +19,10 @@ import Checkout from './pages/checkout/co.js';
 import OrderConfirm from './pages/orderconfirm/oc.js';
 import OrderTrack from './pages/ordertracking/ot.js';
 
+import ProductPage from './pages/ProductPage/ProductPages.js';
+import ProductDetails from './pages/ProductDetail/ProductDetails.js';
+import { CartProvider } from './data/CartProvider.js'
+
 function App() {
   return (
     <Router>
@@ -44,13 +48,16 @@ function App() {
         <Route path="/orderconfirm" element={<OrderConfirm />} />
         <Route path="/ordertrack" element={<OrderTrack />} />
 
+        <Route path="/product" element={<ProductPage />} />
+          <Route path="/productdetails/:id" element={<ProductDetails />} />
+
 
           </Routes>
         </div>
         <Footer />
       </div>
     </Router>
-  );
+  )
 }
 
 export default App;
