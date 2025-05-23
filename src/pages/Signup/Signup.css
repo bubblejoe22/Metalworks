@@ -1,0 +1,278 @@
+/* Add these styles to your existing Login.css file */
+@font-face {
+  font-family: 'MyFont';
+  src: url('../../assets/font/static/PixelifySans-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.character-container {
+  position: absolute;
+  bottom: 7rem;
+  left: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 1;
+}
+
+.character-bubble {
+  background-image: url('../../assets/bubble.png');
+  background-size: 100% 100%;  /* Makes the image cover the entire element */
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 1rem;
+  position: relative;
+  margin-bottom: 1rem;
+  width: 100%;
+  height: 100px;
+  animation: bobbing 2s infinite ease-in-out;
+}
+
+.character-bubble p {
+  margin-right: 10px;
+}
+
+@keyframes bobbing {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+.character-bubble:after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 20px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+
+.character-bubble p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.bubble-footnote {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin-top: 0.5rem;
+}
+
+.pixel-character {
+  width: 160px;
+  height: 160px;
+  background-image: url('../../assets/guide.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .welcome-message {
+    font-size: 2rem;
+  }
+}
+
+.password-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.form-rows {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;           /* Use full container width */
+  margin-right: 150px;
+  justify-content: flex-start;
+  gap: 170px;
+}
+
+.name-row,
+.credits-row {
+  flex: 1;
+  max-width: 40px; /* or adjust to 45% each if needed */
+  height: auto;
+  margin: 0; /* Remove large fixed margins */
+  display: flex;
+  gap: 2px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.name-row input,
+.credits-row input {  /* or any size you want */
+  height: 35px;
+  font-size: 1rem;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.guide-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.guide-tooltip {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 5px);
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  width: 250px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  font-size: 14px;
+  color: #333;
+  text-align: left;
+}
+
+/* Optional: Add a small arrow pointing up to the tooltip */
+.guide-tooltip:before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  right: 15px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #ccc;
+}
+
+.guide-tooltip:after {
+  content: '';
+  position: absolute;
+  top: -7px;
+  right: 15px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #fff;
+}
+
+.signup-container {
+  width: 100%;
+  background-image: url('../../assets/bg1.png');
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 0;
+  position: relative;
+  min-height: 600px;
+  font-family: 'MyFont', sans-serif;
+  image-rendering: pixelated;
+}
+
+.signup-card {
+  background-image: url('../../assets/textbox.PNG');
+ background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+  max-width: 600px;
+  max-height: 300px;
+  padding: 40px 30px;
+  position: relative;
+}
+
+.signup-title {
+  color: var(--text-dark);
+  text-align: center;
+  margin-bottom: 5px;
+  padding-top: 20px;
+  font-size: 20px;
+
+}
+
+.welcome-message {
+  font-size: 2.5rem;
+  color: var(--text-light);
+  text-shadow: 3px 3px 0 #000;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.error-alert {
+  background-color: #fecaca;
+  border: 1px solid #ef4444;
+  color: #7f1d1d;
+  padding: 12px;
+  border-radius: 4px;
+  margin-bottom: 24px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-label {
+  margin-bottom: 6px;
+  font-weight: 500;
+  position: relative;
+  margin-top: 5rem;
+}
+
+.form-input {
+  width: 200px;
+  padding: 10px;
+  font-size: 15px;
+  background-color: var(--input-bg);
+  color: var(--text-dark);
+  font-family: 'MyFont', monospace;
+  font-size: 0.8rem;
+  outline: none;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #ff3c00;
+  box-shadow: 0 0 0 2px rgba(255, 60, 0, 0.2);
+}
+
+.error-message {
+  color: #dc2626;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.submit-button {
+  width: 100%;
+  justify-content: center;
+  background-color: #ff3c00;
+  color: white;
+  padding-top: 5px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 1px;
+}
+
+.submit-button:hover {
+  background-color: #e63500;
+}
+
+.submit-button:disabled {
+  background-color: #d1d5db;
+  cursor: not-allowed;
+}
+
+.form-footer {
+  text-align: center;
+  margin-top: 5px;
+}
+
+.form-link {
+  color: #ff3c00;
+  text-decoration: none;
+}
+
+.form-link:hover {
+  text-decoration: underline;
+}

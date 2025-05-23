@@ -22,16 +22,23 @@ import OrderTrack from './pages/ordertracking/ot.js';
 import ProductPage from './pages/ProductPage/ProductPages.js';
 import ProductDetails from './pages/ProductDetail/ProductDetails.js';
 import { CartProvider } from './data/CartProvider.js'
+import Login from './pages/Login/Login.js';
+import Home from './pages/Home/Home.js';
+import Signup from './pages/Signup/Signup.js';
+
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Header />
+        <CartProvider>
         
         <div className="main-content">
           <Routes>
-            <Route path="/" />
+            <Route path="/" element={<Home />}/>
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/search" element={<Search />} />
@@ -55,6 +62,7 @@ function App() {
           </Routes>
         </div>
         <Footer />
+        </CartProvider>
       </div>
     </Router>
   )
