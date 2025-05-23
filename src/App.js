@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import './App.css';
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
@@ -10,11 +11,19 @@ import Footer from './Components/Footer/Footer';
 
 import ShoppingCart from './pages/ShoppingCart/ShoppingCart.js';
 import Dashboard from './pages/Dashboard/Dashboard.js';
+=======
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import FAQ from './pages/FAQ/Faq.js';
+import TermsAndConditions from './pages/TermsAndConditions/TermsAndConditions.js';
+import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy.js';
+>>>>>>> origin/deborah
 
 
 function App() {
   return (
     <Router>
+<<<<<<< HEAD
       <div className="App">
         <Header />
         
@@ -34,6 +43,18 @@ function App() {
 
         <Footer />
       </div>
+=======
+ 
+      
+      <Routes>
+        <Route path="/FAQ" element={<FAQ />} />
+        <Route path="/TermsAndConditions" element={<TermsAndConditions />} />
+        <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
+
+      </Routes>
+
+  
+>>>>>>> origin/deborah
     </Router>
   );
 }

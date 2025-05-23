@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "blacksmithpartial",
+=======
+  "name": "bors",
+>>>>>>> origin/deborah
   "version": "0.1.0",
   "private": true,
   "dependencies": {
