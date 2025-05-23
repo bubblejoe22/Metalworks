@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "blacksmithpartial",
+=======
+  "name": "mw",
+>>>>>>> origin/pia
   "version": "0.1.0",
   "private": true,
   "dependencies": {
