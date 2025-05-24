@@ -1,7 +1,5 @@
 import React from 'react';
 import './Faq.css';
-// Import the pixel fonts directly in the component
-// The actual fonts will be loaded via the CSS file
 
 const FAQ = () => {
   const categories = [

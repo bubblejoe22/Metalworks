@@ -18,7 +18,7 @@
 }
 
 .shopping-cart-container {
-  font-family: 'MyFont', sans-serif;
+  font-family: 'MyFont';
   min-height: 100vh;
   background-color: #000000;
   color: #ffffff;
@@ -214,6 +214,7 @@
 }
 
 .remove-btn {
+  font-family: 'MyFont';
   margin-left: 1rem;
   color: #ff6b6b;
   font-size: 0.875rem;
@@ -290,6 +291,7 @@
 }
 
 .checkout-btn {
+  font-family: 'MyFont';
   width: 100%;
   background: linear-gradient(to right, var(--secondary-color), #f59e0b);
   color: var(--text-dark);
@@ -312,6 +314,7 @@
 }
 
 .continue-btn {
+  font-family: 'MyFont';
   width: 100%;
   background-color: transparent;
   border: 2px solid var(--secondary-color);
@@ -435,6 +438,7 @@
 }
 
 .add-to-cart-btn {
+  font-family: 'MyFont';
   width: 100%;
   margin-top: 0.5rem;
   background-color: var(--danger-color);

@@ -99,7 +99,7 @@ const Contact = () => {
       <div className="contact-content">
         <div className="contact-form">
           <form onSubmit={handleSubmit}>
-            <div className="form-group">
+            <div className="co-form-group">
               <label htmlFor="name">Your Name</label>
               <input
                 type="text"
@@ -113,7 +113,7 @@ const Contact = () => {
               {formErrors.name && <span className="error-message">{formErrors.name}</span>}
             </div>
             
-            <div className="form-group">
+            <div className="co-form-group">
               <label htmlFor="email">Email</label>
               <input
                 type="email"
@@ -127,7 +127,7 @@ const Contact = () => {
               {formErrors.email && <span className="error-message">{formErrors.email}</span>}
             </div>
             
-            <div className="form-group">
+            <div className="co-form-group">
               <label htmlFor="phone">Phone</label>
               <input
                 type="tel"
@@ -139,7 +139,7 @@ const Contact = () => {
               />
             </div>
             
-            <div className="form-group">
+            <div className="co-form-group">
               <label htmlFor="subject">Subject</label>
               <input
                 type="text"
@@ -151,7 +151,7 @@ const Contact = () => {
               />
             </div>
             
-            <div className="form-group">
+            <div className="co-form-group">
               <label htmlFor="message">Message</label>
               <textarea
                 id="message"
