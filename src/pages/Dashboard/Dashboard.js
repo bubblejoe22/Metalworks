@@ -1,7 +1,5 @@
-import React, { useState, useEffect, useCallback, createContext, useContext } from 'react';
+import React, { useState, useCallback, createContext, useContext } from 'react';
 import './Dashboard.css';
-
-// Import product images
 import bronzeArmorImg from './dashassets/bronze_armor.png';
 import steelHelmetImg from './dashassets/steel_helmet.png';
 import ironSwordImg from './dashassets/iron_sword.png';
@@ -9,10 +7,8 @@ import titaniumHelmetImg from './dashassets/titanium_helmet.png';
 import ironShieldImg from './dashassets/iron_shield.png';
 import cloud1 from '../../assets/cloud1.png';
 
-// Create context for global state
 const DashboardContext = createContext();
 
-// Custom hook for orders management
 const useOrders = () => {
   const [orders, setOrders] = useState([
     {
@@ -51,7 +47,6 @@ const useOrders = () => {
   return { orders, setOrders };
 };
 
-// Custom hook for addresses management
 const useAddresses = () => {
   const [addresses, setAddresses] = useState([
     {
@@ -81,7 +76,6 @@ const useAddresses = () => {
   return { addresses, setAddresses };
 };
 
-// Custom hook for status classification
 const useStatus = () => {
   const getStatusClass = useCallback((status) => {
     switch (status.toLowerCase()) {
@@ -106,9 +100,12 @@ const DashboardProvider = ({ children }) => {
   const [activeSection, setActiveSection] = useState('dashboard');
   
   const handleLogout = () => {
-    console.log('Logging out...');
-    alert('Logout functionality would be implemented here');
-  };
+  console.log('Logging out...');
+  localStorage.removeItem('user'); 
+  localStorage.removeItem('token'); 
+  window.location.href = "/login";
+};
+
 
   const handleShopNow = () => {
     console.log('Navigating to shop...');

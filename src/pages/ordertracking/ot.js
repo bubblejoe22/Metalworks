@@ -1,5 +1,3 @@
-// ot.js
-import React from 'react';
 import './ot.css';
 import { useNavigate } from 'react-router-dom';
 
@@ -10,7 +8,6 @@ const TrackOrder = () => {
     navigate('/orderconfirm');
   };
 
-  // Metalwork status icons
   const statusIcons = {
     created: '⚒️',
     picked: '📦',

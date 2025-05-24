@@ -1,7 +1,6 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
 import './ShoppingCart.css';
-
-// Import all images
+import { Link } from 'react-router-dom';
 import ironSwordImg from './scassets/iron_sword.png';
 import titaniumShieldImg from './scassets/titanium_shield.png';
 import bronzeHelmetImg from './scassets/bronze_helmet.png';
@@ -188,7 +187,7 @@ const OrderSummary = ({ subtotal, shipping, tax, total }) => (
       </div>
       
       <button className="checkout-btn">
-        Proceed to Checkout
+        <Link to="/checkout">Proceed to Checkout</Link>
       </button>
       
       <button className="continue-btn">

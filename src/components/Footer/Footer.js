@@ -1,4 +1,3 @@
-import React from "react";
 import "./Footer.css";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 import bankIcon from "./Footerassets/bank.svg";
@@ -16,8 +15,8 @@ const Footer = () => {
             <Link to="/contact">Contact Us</Link>
           </div>
           <div className="link-column">
-            <Link to="/privacy">Privacy Policy</Link>
-            <Link to="/terms">Terms of Use</Link>
+            <Link to="/PrivacyPolicy">Privacy Policy</Link>
+            <Link to="/TermsAndConditions">Terms of Use</Link>
           </div>
         </div>
 

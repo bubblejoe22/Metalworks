@@ -1,4 +1,3 @@
-import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Home.css';
 import { useAppStore } from '../../stores/useStore';
@@ -12,7 +11,6 @@ import jereveImage from '../../assets/jereve.png';
 import icon from '../../assets/icon.jpg';
 import banner from '../../assets/bannerr.png';
 import character from '../../assets/guide.png';
-import { productsData } from '../../data/productsData';
 
 export default function Home() {
   const { openOverlay } = useAppStore();
@@ -81,7 +79,7 @@ export default function Home() {
   style={{ 
     backgroundImage: `url(${images.heroBanner})`,
     width: '100%',
-    height: '200px', 
+    height: '250px', 
     backgroundSize: 'cover',
     backgroundPosition: 'center', 
     backgroundRepeat: 'no-repeat', 
