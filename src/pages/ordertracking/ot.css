@@ -7,14 +7,13 @@
 
 .track-order-container {
   font-family: 'MyFont', sans-serif;
-  background: url('./otassets/bg.png') no-repeat center center fixed;
   background-size: cover;
   color: #e8e8e8;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   image-rendering: pixelated;
-  padding: 20px;
+  padding: 80px;
 }
 
 .track-order-content {

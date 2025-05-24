@@ -44,15 +44,15 @@ const Header = () => {
   const isHome = location.pathname === '/';
 
   return (
-    <header className="header">
-      <div className="header-left">
+    <header className="the-header">
+      <div className="the-header-left">
         <Link to="/" className="home-link">
           <img src={logo} alt="Logo" className="logo" />
           <span className={`site-title ${isHome ? 'active' : ''}`}>Metalworks</span>
         </Link>
       </div>
 
-      <div className="header-right">
+      <div className="the-header-right">
         <form className="search-bar" onSubmit={handleSearch}>
           <input
             type="text"

@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import './co.css';
 import bronzeShield from './coassets/bronze_shield.png';
 import bronzeSword from './coassets/bronze_sword.png';
-import backgroundImage from './coassets/bg.png'; 
 
 const CheckoutPage = () => {
   const navigate = useNavigate();
@@ -85,15 +84,7 @@ const CheckoutPage = () => {
   const total = subtotal + shipping - (discountApplied ? promoDiscount : 0);
 
   return (
-    <div 
-      className="checkout-page"
-      style={{ backgroundImage: `url(${backgroundImage})` }} // Inline style for background
-    >
-      <div className="background-effects">
-        <div className="particles"></div>
-        <div className="glow-effect"></div>
-      </div>
-      
+    <div className="checkout-page">
       
       <main className="checkout-container">
         <h1>Checkout</h1>

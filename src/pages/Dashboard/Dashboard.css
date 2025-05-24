@@ -8,7 +8,7 @@
   font-style: normal;
 }
 
-body {
+ds-body {
   font-family: 'MyFont', sans-serif;
   color: #f7deaa;
   background-color: var(--darker-bg);
@@ -18,7 +18,7 @@ body {
 }
 
 /* Remove any potential white flash */
-html, body {
+ds-html, ds-body {
   background-color: #000000;
 }
 
@@ -66,7 +66,7 @@ html, body {
   z-index: 0;
 }
 
-.dashboard-content {
+.ds-dashboard-content {
   display: flex;
   padding: 100px;
   gap: 50px;
@@ -75,7 +75,7 @@ html, body {
 }
 
 /* Enhanced Sidebar with subtle glow */
-.sidebar {
+.ds-sidebar {
   width: 280px;
   display: flex;
   flex-direction: column;
@@ -83,7 +83,7 @@ html, body {
   animation: fadeIn 0.8s ease-out;
 }
 
-.nav-container {
+.ds-nav-container {
   background-color: #3a4a3a;
   border-radius: 20px;
   padding: 20px;
@@ -92,19 +92,19 @@ html, body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.nav-container:hover {
+.ds-nav-container:hover {
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25), 
               0 0 20px rgba(137, 206, 140, 0.15);
 }
 
-.nav-menu {
+.ds-nav-menu {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.nav-menu li {
+.ds-nav-menu li {
   padding: 12px 15px;
   margin: 8px 0;
   border-radius: 12px;
@@ -117,7 +117,7 @@ html, body {
   overflow: hidden;
 }
 
-.nav-menu li::before {
+.ds-nav-menu li::before {
   content: '';
   position: absolute;
   top: 0;
@@ -128,21 +128,21 @@ html, body {
   transition: all 0.5s ease;
 }
 
-.nav-menu li:hover::before {
+.ds-nav-menu li:hover::before {
   left: 100%;
 }
 
-.nav-menu li:hover {
+.ds-nav-menu li:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.nav-menu li.active {
+.ds-nav-menu li.active {
   background-color: #5a6d5a;
   color: #ffffff;
   box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.nav-icon {
+.ds-nav-icon {
   margin-right: 12px;
   font-size: 1.2rem;
   color: #ffffff;
@@ -178,7 +178,7 @@ html, body {
   text-shadow: 0 0 8px rgba(137, 206, 140, 0.5);
 }
 
-.main-content {
+.ds-main-content {
   flex: 1;
   background-color: rgba(43, 43, 43, 0.7);
   border-radius: 20px;

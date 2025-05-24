@@ -5,7 +5,7 @@
   font-style: normal;
 }
 
-.header {
+.the-header {
   font-family: 'MyFont';
   position: fixed;
   top: 0;
@@ -22,12 +22,12 @@
   box-shadow: none;
 }
 
-.header-left,
-.header-right {
+.the-header-left,
+.the-header-right {
   padding: 0 15px;
 }
 
-.header-left {
+.the-header-left {
   display: flex;
   align-items: center;
 }
@@ -49,7 +49,7 @@
   font-weight: bold;
 }
 
-.header-right {
+.the-header-right {
   display: flex;
   align-items: center;
   gap: 15px;

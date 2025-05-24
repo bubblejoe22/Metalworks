@@ -228,10 +228,10 @@ const DashboardContent = () => {
   }
 
   return (
-    <div className="dashboard-content">
-      <div className="sidebar">
-        <div className="nav-container">
-          <ul className="nav-menu">
+    <div className="ds-dashboard-content">
+      <div className="ds-sidebar">
+        <div className="ds-nav-container">
+          <ul className="ds-nav-menu">
             <li 
               className={activeSection === 'dashboard' ? 'active' : ''}
               onClick={() => setActiveSection('dashboard')}
@@ -258,14 +258,14 @@ const DashboardContent = () => {
               onClick={() => setActiveSection('addresses')}
               aria-current={activeSection === 'addresses' ? 'page' : undefined}
             >
-              <span className="nav-icon" aria-hidden="true">🏰</span> Addresses
+              <span className="ds-nav-icon" aria-hidden="true">🏰</span> Addresses
             </li>
             <li className="logout-btn" onClick={handleLogout}>
-              <span className="nav-icon" aria-hidden="true">🚪</span> Logout
+              <span className="ds-nav-icon" aria-hidden="true">🚪</span> Logout
             </li>
           </ul>
         </div>
-        <div className="main-panel">
+        <div className="ds-main-panel">
           <img src={cloud1} alt="Decorative cloud background" className="zoomed-full-image" />
         </div>
 
@@ -275,7 +275,7 @@ const DashboardContent = () => {
         </div>
       </div>
 
-      <div className="main-content">
+      <div className="ds-main-content">
         {activeSection === 'dashboard' && (
           <DashboardOverview />
         )}
