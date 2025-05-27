@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import './oc.css';
 import bronzeShield from './ocassets/bronze_shield.png';
 import bronzeSword from './ocassets/bronze_sword.png';
-import receiptImage from './ocassets/RCPT.png';
+import receiptImage from './ocassets/orderrcpt.png';
 
 const OrderConfirmation = () => {
   const navigate = useNavigate();
@@ -48,10 +48,9 @@ const OrderConfirmation = () => {
 
   return (
     <div className="order-confirmation-container">
-      
-      <div className="confirmation-content">
         <h1 className="confirmation-title">Your order has been forged!</h1>
         
+        <div className="confirmation-content">
         <div className="order-summary">
           <h2>Order Summary</h2>
           <div className="order-number">

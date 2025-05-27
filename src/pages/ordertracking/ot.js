@@ -21,10 +21,9 @@ const TrackOrder = () => {
 
   return (
     <div className="track-order-container">
-      <div className="track-order-content">
-        <button className="back-button" onClick={handleBack}>
-          ⬅ Back to Forge
-        </button>
+          <button className="back-button" onClick={handleBack}>
+            ← Back to Forge</button>
+          <div className="track-order-content">
 
         <h2 className="pixel-title">⚔️ Order Tracking ⚔️</h2>
         
