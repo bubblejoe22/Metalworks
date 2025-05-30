@@ -41,6 +41,14 @@ const Header = () => {
     navigate('/Dashboard');
   }
 
+  const products = () => {
+    navigate('/product');
+  }
+
+  const FAQ = () => {
+    navigate('/Faq');
+  }
+
   const isHome = location.pathname === '/';
 
   return (
@@ -76,6 +84,8 @@ const Header = () => {
               <p className="profile-name">{user?.firstName} {user?.lastName}</p>
               <p className="profile-email">{user?.email}</p>
               <button className="logout-btn" onClick={profile}>Profile</button>
+              <button className="logout-btn" onClick={products}>Products</button>
+              <button className="logout-btn" onClick={FAQ}>FAQ</button>
               <button className="logout-btn" onClick={handleLogout}>Log out</button>
             </div>
           )}
